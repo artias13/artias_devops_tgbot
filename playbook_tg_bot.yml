@@ -211,7 +211,7 @@
         DB_REPL_PASSWORD: "{{ hostvars[inventory_hostname]['DB_REPL_PASSWORD'] }}"
 
 - name: CONFIGURATING BOT
-  hosts: ansible1
+  hosts: ansible3
   become: yes
   tasks:
     - name: Install Python packages
@@ -230,8 +230,8 @@
     - name: Create working directory
       file:
         path: etc/bot_for_ansible
-        owner: ansible1
-        group: ansible1
+        owner: ansible3
+        group: ansible3
         state: directory
         mode: '0777'
 
