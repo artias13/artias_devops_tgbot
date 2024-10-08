@@ -10,10 +10,10 @@ all:
       ansible_ssh_pass: 123
       ansible_host: 192.168.159.143
 
-    ansible2: 
+    ansible3: 
       ansible_user: ansible3
       ansible_ssh_pass: 123
-      ansible_host: 192.168.159.144
+      ansible_host: 192.168.159.145
 
   vars:
     DB_REPL_HOST: 192.168.159.143
