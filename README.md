@@ -7,6 +7,12 @@
 ```bash
 sudo docker compose up --build
 ```
+```bash
+sudo docker network create my_network
+```
+```bash
+sudo docker compose up -d
+```
 ------------------------------
 
 Тестирование произведено на Ubuntu 20.04
