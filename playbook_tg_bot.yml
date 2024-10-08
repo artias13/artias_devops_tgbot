@@ -75,7 +75,8 @@
         path: /etc/postgresql/14/main/pg_hba.conf
         block: |
           local all {{ hostvars[inventory_hostname]['DB_USER'] }} peer
-          host all all "{{ hostvars[inventory_hostname]['DB_HOST'] }}"/32 trust
+          host all all {{ hostvars[inventory_hostname]['DB_HOST'] }}/32 trust
+          host all all {{ hostvars[inventory_hostname]['BOT_HOST'] }}/32 trust
           host replication {{ hostvars[inventory_hostname]['DB_REPL_USER'] }} {{ hostvars[inventory_hostname]['DB_REPL_HOST'] }}/24 trust
 
     - name: Setup postgresql.conf
@@ -116,8 +117,8 @@
       become: yes
       become_user: postgres
 
-    - name: Create Emails table
-      command: psql -d {{ hostvars[inventory_hostname]['DB_DATABASE'] }} -c "CREATE TABLE emails (id serial PRIMARY KEY, email text);"
+    - name: Create Email Addresses table
+      command: psql -d {{ hostvars[inventory_hostname]['DB_DATABASE'] }} -c "CREATE TABLE email_addresses (id serial PRIMARY KEY, email_address text);"
       become_user: postgres
       ignore_errors: true
 

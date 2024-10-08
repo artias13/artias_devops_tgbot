@@ -16,6 +16,7 @@ all:
       ansible_host: 192.168.159.145
 
   vars:
+    BOT_HOST: 192.168.159.145
     DB_REPL_HOST: 192.168.159.143
     DB_REPL_USER: repl_user
     DB_REPL_PASSWORD: 123
